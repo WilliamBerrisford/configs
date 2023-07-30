@@ -13,3 +13,4 @@ alias cat='bat'
 alias nano='micro'
 
 export PATH=/home/will/.cargo/bin/:$PATH
+export PS1="\e[1;31m\u@\h:\w\e[m$ "
