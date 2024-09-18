@@ -24,7 +24,7 @@ bindsym $mod+d exec wofi --show=drun
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/will/wallpapers/alena-aenami-light-at-the-end-hd.jpg center 
+output * bg /home/will/wallpapers/timeless_by_aenami.png fill
 #
 # Example configuration:
 output HDMI-A-1 resolution 1920x1080 position 0,0
