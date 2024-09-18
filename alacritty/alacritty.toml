@@ -1,0 +1,4 @@
+import = ["/home/will/.config/alacritty/themes/themes/{github_dark_default}.yaml"]
+
+[window]
+opacity = 0.95
