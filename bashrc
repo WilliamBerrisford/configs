@@ -7,10 +7,17 @@
 
 PS1='[\u@\h \W]\$ '
 
-alias grep='rg'
-alias ls='exa'
-alias cat='bat'
-alias nano='micro'
+export PS1="\e[1;31m\u@\h:\w\e[m$ "
+
+alias grep="rg"
+alias ls="exa"
+alias cat="bat"
+alias nano="micro"
 
 export PATH=/home/will/.cargo/bin/:$PATH
-export PS1="\e[1;31m\u@\h:\w\e[m$ "
+
+if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]
+then
+	shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''
+	exec fish $LOGIN_OPTION
+fi
