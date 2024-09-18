@@ -13,6 +13,7 @@ alias grep="rg"
 alias ls="exa"
 alias cat="bat"
 alias nano="micro"
+alias vim="nvim"
 
 export PATH=/home/will/.cargo/bin/:$PATH
 
