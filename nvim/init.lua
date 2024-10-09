@@ -201,7 +201,11 @@ require("conform").setup({
   },
 })
 
+-- Apply suggestion
 vim.keymap.set('n', '<leader>fm', function()
     vim.lsp.buf.code_action({apply=false}) end, bufopts)
 
+-- Rename symbol
+vim.keymap.set('n', '<leader>r', function()
+    vim.lsp.buf.rename() end, bufopts)
 
