@@ -26,7 +26,10 @@ Plug('nvim-telescope/telescope-live-grep-args.nvim')
 
 Plug('stevearc/conform.nvim')
 
+Plug('folke/tokyonight.nvim')
 vim.call('plug#end')
+
+vim.cmd([[colorscheme tokyonight]])
 
 -- Set up nvim-cmp.
 local cmp = require'cmp'
@@ -122,6 +125,7 @@ local telescope = require('telescope')
 telescope.load_extension("live_grep_args")
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+vim.keymap.set('n', '<leader>fs', builtin.grep_string, { desc = 'Telescope grep string' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
