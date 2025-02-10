@@ -102,6 +102,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 local lspconfig = require('lspconfig')
 
+lspconfig.clangd.setup{}
 lspconfig.rust_analyzer.setup {
   capabilities = capabilities,
   settings = {
@@ -128,6 +129,8 @@ vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_gre
 vim.keymap.set('n', '<leader>fs', builtin.grep_string, { desc = 'Telescope grep string' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader>fd', builtin.lsp_definitions, { desc = 'Telescope lsp_definitions' })
+vim.keymap.set('n', '<leader>fr', builtin.lsp_references, { desc = 'Telescope lsp_definitions' })
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the listed parsers MUST always be installed)
