@@ -183,4 +183,4 @@ vim.keymap.set('n', '<leader>fm', function()
 -- Rename symbol
 vim.keymap.set('n', '<leader>r', function()
     vim.lsp.buf.rename() end, bufopts)
-
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
