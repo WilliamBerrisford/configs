@@ -1,2 +1,11 @@
-Code/
-StardewValley
+*
+!.gitignore
+!alacritty/
+!fish
+!gtk-3.0
+!kanshi
+!nvim
+!sway
+!waybar
+LICENSE
+bashrc
