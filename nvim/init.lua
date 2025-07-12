@@ -7,9 +7,12 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin')
 
 Plug('neovim/nvim-lspconfig')
-Plug('nvim-treesitter/nvim-treesitter', { ['do'] = function()
-  vim.fn['nvim-treesitter#TSUpdate']()
-end })
+Plug('nvim-treesitter/nvim-treesitter', { 
+	['branch'] = 'master',
+	['do'] = function()
+		vim.fn['nvim-treesitter#TSUpdate']()
+	end,
+})
 
 Plug('hrsh7th/cmp-nvim-lsp')
 Plug('hrsh7th/cmp-buffer')
@@ -120,6 +123,8 @@ lspconfig.rust_analyzer.setup {
 lspconfig.bashls.setup {
   capabilities = capabilities,
 }
+
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
 local builtin = require('telescope.builtin')
 local telescope = require('telescope')
