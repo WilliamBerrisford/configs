@@ -11,7 +11,6 @@ export PS1="\e[1;31m\u@\h:\w\e[m$ "
 
 alias grep="rg"
 alias ls="exa"
-alias cat="bat"
 alias nano="micro"
 alias vim="nvim"
 

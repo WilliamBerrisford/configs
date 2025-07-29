@@ -105,6 +105,9 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 local lspconfig = require('lspconfig')
 
+vim.lsp.enable('pyright')
+vim.lsp.enable('ruff')
+
 lspconfig.clangd.setup{}
 lspconfig.rust_analyzer.setup {
   capabilities = capabilities,
@@ -189,3 +192,4 @@ vim.keymap.set('n', '<leader>fm', function()
 vim.keymap.set('n', '<leader>r', function()
     vim.lsp.buf.rename() end, bufopts)
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+

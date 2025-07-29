@@ -1,6 +1,10 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export EDITOR:nvim
+SETUVAR SHELL:/bin/bash\x1efish
+SETUVAR --export SSH_AGENT_PID:2460
+SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dXXXXXXXLiGzN/agent\x2e2459
+SETUVAR SSH_KEYS_TO_AUTOLOAD:/home/will/\x2essh/id_ed25519
 SETUVAR __fish_initialized:3800
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
