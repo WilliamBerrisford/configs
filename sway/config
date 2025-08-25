@@ -251,6 +251,9 @@ bindsym $mod+r mode "resize"
 # }
 
 bar swaybar_command waybar 
+#bar {
+#   status_command i3status
+#}
 
 #     position top
 
