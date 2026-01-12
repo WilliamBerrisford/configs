@@ -40,6 +40,9 @@ gaps inner 5
           timeout 300 'swaylock -f -c 000000' \
           timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
           before-sleep 'swaylock -f -c 000000'
+
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 &
+
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when

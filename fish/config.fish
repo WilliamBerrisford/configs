@@ -4,3 +4,7 @@ if status is-interactive
   alias cat="bat"
   alias nano="micro"
 end
+
+fish_add_path $HOME/go/bin
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
