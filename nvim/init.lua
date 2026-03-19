@@ -70,17 +70,6 @@ cmp.setup({
   })
 })
 
--- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
--- Set configuration for specific filetype.
---[[ cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'git' },
-  }, {
-    { name = 'buffer' },
-  })
-})
-require("cmp_git").setup() ]]-- 
-
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
@@ -108,8 +97,8 @@ local lspconfig = require('lspconfig')
 vim.lsp.enable('pyright')
 vim.lsp.enable('ruff')
 
-lspconfig.clangd.setup{}
-lspconfig.rust_analyzer.setup {
+vim.lsp.enable('clangd')
+vim.lsp.enable('rust_analyzer', {
   capabilities = capabilities,
   settings = {
       ['rust-analyzer'] = {
@@ -121,11 +110,12 @@ lspconfig.rust_analyzer.setup {
           }
       }
   }
-}
+  }
+)
 
-lspconfig.bashls.setup {
+vim.lsp.enable('bashls', {
   capabilities = capabilities,
-}
+})
 
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
