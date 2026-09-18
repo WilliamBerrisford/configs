@@ -8,7 +8,7 @@ vim.call('plug#begin')
 
 Plug('neovim/nvim-lspconfig')
 Plug('nvim-treesitter/nvim-treesitter', { 
-	['branch'] = 'master',
+	['branch'] = 'main',
 	['do'] = function()
 		vim.fn['nvim-treesitter#TSUpdate']()
 	end,
@@ -23,16 +23,32 @@ Plug('hrsh7th/nvim-cmp')
 Plug('hrsh7th/cmp-vsnip')
 Plug('hrsh7th/vim-vsnip')
 
+Plug('nicolasgb/jj.nvim')
+
 Plug('nvim-lua/plenary.nvim')
-Plug('nvim-telescope/telescope.nvim', { ['tag'] = '0.1.8' })
+Plug('nvim-telescope/telescope.nvim')
 Plug('nvim-telescope/telescope-live-grep-args.nvim')
 
 Plug('stevearc/conform.nvim')
 
 Plug('folke/tokyonight.nvim')
+
+-- NUI component library used by hunk.nvim
+Plug('MunifTanjim/nui.nvim')
+Plug('nvim-tree/nvim-web-devicons')
+Plug('julienvincent/hunk.nvim')
+
 vim.call('plug#end')
 
-vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme tokyonight-night]])
+
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'DiffEditor',
+  callback = function()
+    require('hunk').setup()
+  end,
+})
+
 
 -- Set up nvim-cmp.
 local cmp = require'cmp'
@@ -130,32 +146,18 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 vim.keymap.set('n', '<leader>fd', builtin.lsp_definitions, { desc = 'Telescope lsp_definitions' })
 vim.keymap.set('n', '<leader>fr', builtin.lsp_references, { desc = 'Telescope lsp_definitions' })
 
-require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "rust", "cpp", "c", "java", "bash", "python" },
+--vim.api.nvim_create_autocmd('FileType', {
+--  callback = function()
+--    -- Enable treesitter highlighting (fall back gracefully)
+--    pcall(vim.treesitter.start)
+--    -- Enable treesitter-based indentation
+--    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+--  end,
+--})
+--
+--require('nvim-treesitter').install { 'rust', 'bash', 'python', 'markdown' }
 
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = false,
-
-  -- List of parsers to ignore installing (or "all")
-
-  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
-  highlight = {
-    enable = true,
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-}
+require("jj").setup({})
 
 require("conform").setup({
   format_on_save = {
@@ -182,4 +184,4 @@ vim.keymap.set('n', '<leader>fm', function()
 vim.keymap.set('n', '<leader>r', function()
     vim.lsp.buf.rename() end, bufopts)
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
-
+vim.opt.clipboard = "unnamedplus"
