@@ -7,6 +7,11 @@ profile 2-monitors {
 	output "BNQ BenQ GW2780 ETB7K04025SL0" position 0,0
 }
 
+profile 2-monitors-ultrawide {
+	output eDP-1 position 3440,0 scale 1.5
+	output "Dell Inc. AW3425DWM 2YN5444" position 0,0
+}
+
 profile tv {
 	output eDP-1 position 0,1080 scale 1.5
 	output "AMZ FireTV Unknown" mode 1920x1080@60 position 0,0
