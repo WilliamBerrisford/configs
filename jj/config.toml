@@ -1,0 +1,10 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[ui]
+editor = "nvim"
+diff-instructions = false
+diff-editor = "nvim"
+
+[merge-tools.nvim]
+program = "nvim"
+edit-args = ["-c", "packadd nvim.difftool", "-c", "DiffTool $left $right"]
