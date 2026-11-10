@@ -7,6 +7,8 @@
 !nvim
 !sway
 !waybar
+!ansible/
+!ansible/**
 !jj/
 jj/*
 !jj/config.toml

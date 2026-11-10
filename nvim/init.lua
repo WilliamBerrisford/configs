@@ -23,9 +23,8 @@ Plug('hrsh7th/nvim-cmp')
 Plug('hrsh7th/cmp-vsnip')
 Plug('hrsh7th/vim-vsnip')
 
-Plug('nicolasgb/jj.nvim')
-
 Plug('nvim-lua/plenary.nvim')
+
 Plug('nvim-telescope/telescope.nvim')
 Plug('nvim-telescope/telescope-live-grep-args.nvim')
 
