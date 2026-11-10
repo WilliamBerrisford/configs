@@ -21,7 +21,7 @@
 	"idle_inhibitor",
         "pulseaudio",
         "network",
-        "power-profiles-daemon",
+        "custom/tuned",
         "cpu",
         "memory",
         "temperature",
@@ -149,6 +149,15 @@
     },
     "battery#bat2": {
         "bat": "BAT2"
+    },
+    "custom/tuned": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/tuned.sh",
+        "on-click": "$HOME/.config/waybar/tuned.sh cycle",
+        "on-click-right": "$HOME/.config/waybar/tuned.sh menu",
+        "interval": 30,
+        "signal": 8
     },
     "power-profiles-daemon": {
       "format": "{icon}",
