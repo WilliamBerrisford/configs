@@ -4,9 +4,8 @@ if status is-interactive
   alias nano="micro"
 end
 
-if status is-login
-  and status is-interactive
-  keychain --eval $SSH_KEYS_TO_AUTOLOAD | source
+if status is-interactive
+  SHELL=(command -s fish) keychain --eval --quiet $SSH_KEYS_TO_AUTOLOAD | source
 end
 
 fish_add_path $HOME/go/bin
