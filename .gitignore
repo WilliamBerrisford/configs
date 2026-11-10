@@ -12,5 +12,6 @@
 !jj/
 jj/*
 !jj/config.toml
+jj/conf.d/
 LICENSE
 bashrc
