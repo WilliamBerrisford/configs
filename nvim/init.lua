@@ -1,4 +1,3 @@
-
 vim.wo.number = true
 
 local vim = vim
@@ -155,8 +154,6 @@ vim.keymap.set('n', '<leader>fr', builtin.lsp_references, { desc = 'Telescope ls
 --})
 --
 --require('nvim-treesitter').install { 'rust', 'bash', 'python', 'markdown' }
-
-require("jj").setup({})
 
 require("conform").setup({
   format_on_save = {
